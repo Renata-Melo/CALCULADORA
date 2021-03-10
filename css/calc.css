@@ -1,0 +1,77 @@
+/*cor de fundo da pagina*/
+body{
+    background: url(img_fundo9.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+/*div do orçamento*/
+.div_prin{
+    height: 280px;
+    background-color: white;
+    width: 400px;
+    margin-top:8%;
+
+}
+
+/*div com os resultados*/
+.div_valores{
+    height: 500px;
+    background-color: white;
+    width: 400px;
+
+}
+
+/*faixa preta no titulo*/
+.div_h3{
+    background-color: rgb(0, 70, 128);
+    color: rgb(255, 255, 255);
+}
+
+/*div titulo 2*/
+.h3_titu2{
+    color: rgb(255, 255, 255);
+  
+}   
+
+/*Botão calcular*/
+.btn_cal{
+    height: 30px;
+    width: 200px;
+    
+    background-color: rgb(0, 70, 128);
+    color: white;
+}
+
+/*Botão calcular novamente*/
+.btn_cal2{
+    height: 30px;
+    width: 200px;
+    
+    background-color: rebeccapurple;
+    color: white;
+}
+
+/*div da imagem com os planos*/
+.div_pla{
+    margin-left: 200px;
+    display:  none;
+}
+
+/*Botão ver planos*/
+.btn_planos{
+    background-color: aqua;
+    height: 30px;
+    width: 100px;
+}
+
+/*Botão ocultar planos*/
+.btn_ocult{
+    display: none;
+    background-color: aqua;
+    height: 30px;
+    width: 150px;
+}
+
+
+   

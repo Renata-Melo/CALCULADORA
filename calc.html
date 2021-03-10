@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/calc.css">
+    <title>Orçamento</title>
+</head>
+<body class="body">
+    
+    <center>
+    <!-- Div do orçamento-->    
+    <div id="prin" class="div_prin">
+
+        <!-do titul- div o-->
+        <div class="div_h3"> 
+            <!-- titulo no h3-->
+            <h3>Orçamento</h3> 
+        </div>
+
+        <!-- div dos inputs-->
+        <div id="inp" class="div_inp">
+            <!-- Paragrafo do input-->
+            <p> Quantos tanques vc possui na sua Piscicultura? 
+                <!--input-->
+                <input type="text" id="inp_tank" placeholder="ex: 20"></p><br>
+            <p> Qual o seu lucro mensal com a venda dos peixes? 
+                <input type="text" id="inp_lm" placeholder="ex: 100"></p><br>
+
+            <!--Botão calcular-->                
+            <button id="btn_calcular" class="btn_cal" onclick="calc()">Calcular</button> 
+        </div>
+    </div>
+
+    <!-- div com o resultoado do orçamento-->
+    <div id="div_valor" class="div_valores" style="display: none;">
+
+        <!-- div com o titulo-->
+        <div class="div_h3"> 
+             <!-- titulo no h3-->
+            <h3>Valores</h3> 
+        </div><br>
+
+        <!-- div do resultados-->
+        <div id="res" class="div_resp">
+            <!-- span onde exibira os resultados-->
+            <span id="resposta"></span><br><br>
+
+            <!--Botão calcular novamente-->
+            <br>
+            <button class="btn_cal" onclick="calc_nov()">Calcular Novamente</button> 
+        </div>
+        
+    </div>
+    </center>
+
+</body>
+</html>
+
+<script>
+
+    //função do botão calcular
+    function calc(){
+        //mexendo nos displays 
+        div_valor.style.display = "block";
+        btn_calcular.style.display = "none";
+
+        //variaveis
+        var qtd_tank = Number(inp_tank.value);
+        var sen = 10;
+        var sensor_tank = qtd_tank * sen;
+        var lucro = Number(inp_lm.value);
+        var lucrop1 = lucro * 0.10;
+        var lucrop2 = lucro * 0.12;
+        var lucrop3 = lucro * 0.14;
+        var pl_basico = 6475 + sensor_tank;
+        var pl_inter = 6890 + sensor_tank;
+        var pl_avancado = 8000 + sensor_tank;
+       
+        var plano1_meses= (sensor_tank + pl_basico) / lucrop1;
+        var plano2_meses= (sensor_tank + pl_inter) / lucrop2;
+        var plano3_meses= (sensor_tank + pl_avancado) / lucrop3;
+        
+        //exibindo o resultado no span
+        resposta.innerHTML = `<b>Saem por:<br></b>
+        Plano básico : <b>R$ ${pl_basico},00</b><br>
+        Plano Intermédiario : <b>R$ ${pl_inter},00</b><br>
+        Plano Avancado: <b>R$ ${pl_avancado},00</b><br><br>
+        
+        <b>Lucro na sua produção com o Tanktemp de: </b><br>
+        <b>${lucrop1.toFixed(0)}%</b> no Plano Básico e você terá recuperado <br>o investimento em <b>${plano1_meses.toFixed(0)} meses</b>!! <br><br>
+        <b>${lucrop2.toFixed(0)}%</b> no Plano intermédiario e você terá recuperado <br>o investimento em <b>${plano2_meses.toFixed(0)} meses</b>!!<br><br>
+        <b>${lucrop3.toFixed(0)}%</b> no Plano avançado e você terá recuperado o <br>o investimento em <b>${plano3_meses.toFixed(0)} meses</b>!!<br><br>
+        (Considerando que o unico parametro que não esteja de acordo para o peixe seja a temperatura do seu tanque).<br><br>`; 
+    }
+
+    //função do Botão Calcular novamente
+    function calc_nov(){
+        div_valor.style.display = "none";
+        btn_calcular.style.display = "block";
+        
+        //limpando os inputs
+        inp_tank.value = "";
+        inp_lm.value = "";
+    }
+
+
+</script>
